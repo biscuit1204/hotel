@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>主页一</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" th:href="@{/layui/images/favicon.ico}"   href="images/favicon.ico">
+    <link rel="stylesheet" th:href="@{/layui/lib/layui-v2.6.3/css/layui.css}" href="lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" th:href="@{/layui/css/layuimini.css?v=2.0.4.2}"  href="css/layuimini.css?v=2.0.4.2" media="all">
+    <link rel="stylesheet" th:href="@{/layui/css/themes/default.css}"  href="css/themes/default.css" media="all">
+    <link rel="stylesheet" th:href="@{/layui/lib/font-awesome-4.7.0/css/font-awesome.min.css}"  href="lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+</head>
+<style>
+    .layui-top-box {padding:40px 20px 20px 20px;color:#fff}
+    .panel {margin-bottom:17px;background-color:#fff;border:1px solid transparent;border-radius:3px;-webkit-box-shadow:0 1px 1px rgba(0,0,0,.05);box-shadow:0 1px 1px rgba(0,0,0,.05)}
+    .panel-body {padding:15px}
+    .panel-title {margin-top:0;margin-bottom:0;font-size:14px;color:inherit}
+    .label {display:inline;padding:.2em .6em .3em;font-size:75%;font-weight:700;line-height:1;color:#fff;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:.25em;margin-top: .3em;}
+    .layui-red {color:red}
+    .main_btn > p {height:40px;}
+</style>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main layui-top-box">
+        <div class="layui-row layui-col-space10">
+
+            <div class="layui-col-md3">
+                <div class="col-xs-6 col-md-3">
+                    <div class="panel layui-bg-cyan">
+                        <div class="panel-body">
+                            <div class="panel-title">
+                                <span class="label pull-right layui-bg-blue">实时</span>
+                                <h5>用户统计</h5>
+                            </div>
+                            <div class="panel-content">
+                                <h1 class="no-margins">[[${countUser}]]</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-col-md3">
+                <div class="col-xs-6 col-md-3">
+                    <div class="panel layui-bg-blue">
+                        <div class="panel-body">
+                            <div class="panel-title">
+                                <span class="label pull-right layui-bg-cyan">实时</span>
+                                <h5>酒店统计</h5>
+                            </div>
+                            <div class="panel-content">
+                                <h1 class="no-margins">[[${countHotel}]]
+
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-col-md3">
+                <div class="col-xs-6 col-md-3">
+                    <div class="panel layui-bg-green">
+                        <div class="panel-body">
+                            <div class="panel-title">
+                                <span class="label pull-right layui-bg-orange">实时</span>
+                                <h5>房间统计</h5>
+                            </div>
+                            <div class="panel-content">
+                                <h1 class="no-margins">[[${countRoom}]]</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md3">
+                <div class="col-xs-6 col-md-3">
+                    <div class="panel layui-bg-orange">
+                        <div class="panel-body">
+                            <div class="panel-title">
+                                <span class="label pull-right layui-bg-green">实时</span>
+                                <h5>订单统计</h5>
+                            </div>
+                            <div class="panel-content">
+                                <h1 class="no-margins">[[${countNote}]]</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-box">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header"><i class="fa fa-line-chart icon"></i>报表统计</div>
+                <div class="layui-card-body">
+                    <div id="echarts-records" style="width: 100%;min-height:500px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script th:src="@{/layui/lib/layui-v2.6.3/layui.js}" src="lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script th:src="@{/layui/lib/layui-v2.6.3/layui.js}" src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script th:src="@{/layui/js/lay-config.js?v=1.0.4}" src="../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+<script>
+    layui.use(['layer', 'miniTab','echarts'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            miniTab = layui.miniTab,
+            echarts = layui.echarts;
+
+        miniTab.listen();
+
+        /**
+         * 报表功能
+         */
+        var echartsRecords = echarts.init(document.getElementById('echarts-records'), 'walden');
+        var optionRecords = {
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['周一','周二','周三','周四','周五','周六','周日']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name:'邮件营销',
+                    type:'line',
+                    data:[120, 132, 101, 134, 90, 230, 210]
+                },
+                {
+                    name:'联盟广告',
+                    type:'line',
+                    data:[220, 182, 191, 234, 290, 330, 310]
+                },
+                {
+                    name:'视频广告',
+                    type:'line',
+                    data:[150, 232, 201, 154, 190, 330, 410]
+                },
+                {
+                    name:'直接访问',
+                    type:'line',
+                    data:[320, 332, 301, 334, 390, 330, 320]
+                },
+                {
+                    name:'搜索引擎',
+                    type:'line',
+                    data:[820, 932, 901, 934, 1290, 1330, 1320]
+                }
+            ]
+        };
+        echartsRecords.setOption(optionRecords);
+
+        // echarts 窗口缩放自适应
+        window.onresize = function(){
+            echartsRecords.resize();
+        }
+
+    });
+</script>
+</body>
+</html>

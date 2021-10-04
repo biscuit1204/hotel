@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "uni-app",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-calendar": "/node-modules/uview-ui/components/u-calendar/u-calendar",
+    "u-toast": "/node-modules/uview-ui/components/u-toast/u-toast"
+  }
+}

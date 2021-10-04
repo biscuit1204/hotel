@@ -1,0 +1,100 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+		
+		}, {
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app",
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/book/book",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/me/me",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/list/list",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/info/info",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/info-book/info-book",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/noteHistory/noteHistory",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/comment/comment",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#f0f0f0"
+
+			}
+
+		}
+	],
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#416699",
+		"borderStyle": "black",
+		"backgroundColor": "#fcfcfc",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"iconPath": "static/icon/index.png",
+			"selectedIconPath": "static/icon/indexClick.png"
+		}, {
+			"pagePath": "pages/book/book",
+			"iconPath": "static/icon/book.png",
+			"selectedIconPath": "static/icon/bookClick.png"
+		}, {
+			"pagePath": "pages/me/me",
+			"iconPath": "static/icon/me.png",
+			"selectedIconPath": "static/icon/meClick.png"
+		}]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"easycom": {
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	}
+}

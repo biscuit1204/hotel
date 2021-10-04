@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" th:href="@{/layui/lib/layui-v2.6.3/css/layui.css}"
+          href="../../lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" th:href="@{/layui/css/public.css}" href="../../css/public.css" media="all">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-form layuimini-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label required">ID</label>
+        <div class="layui-input-block">
+            <input type="text" name="id" lay-verify="required" th:value="${note.id}" readonly value=""
+                   class="layui-input">
+            <tip>系统自动生成不可修改</tip>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">创建用户</label>
+        <div class="layui-input-block">
+            <input type="text" name="createUser" lay-verify="required" th:value="${note.createUser}" lay-reqtext="创建用户不能为空"
+                   placeholder="请输入创建用户"  value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">人数</label>
+        <div class="layui-input-block">
+            <input type="number" name="people" lay-verify="required" th:value="${note.people}" lay-reqtext="人数不能为空"
+                   placeholder="请输入人数" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">房间</label>
+        <div class="layui-input-block">
+            <input type="number" name="room" lay-verify="required" th:value="${note.room}" lay-reqtext="房间不能为空"
+                   placeholder="请输入房间" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">时长</label>
+        <div class="layui-input-block">
+            <input type="number" name="dayLong" lay-verify="required" th:value="${note.dayLong}" lay-reqtext="时长不能为空"
+                   placeholder="请输入时长" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+            <label class="layui-form-label required">入住日期</label>
+            <div class="layui-input-block">
+                <input name="startTime" type="text" class="layui-input" id="test" placeholder="yyyy-MM-dd HH:mm:ss">
+            </div>
+    </div>
+    <div class="layui-form-item">
+            <label class="layui-form-label required">退房日期</label>
+            <div class="layui-input-block">
+                <input name="endTime"  type="text" class="layui-input" id="test1" placeholder="yyyy-MM-dd HH:mm:ss">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">状态</label>
+        <div class="layui-input-block">
+            <input type="number" name="flag" lay-verify="required" th:value="${note.flag}" lay-reqtext="等级不能为空"
+                   placeholder="请输入等级" value="" class="layui-input">
+        </div>
+    </div>
+
+
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+        </div>
+    </div>
+</div>
+</div>
+<script th:src="@{/layui/lib/layui-v2.6.3/layui.js}" src="../../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script>
+    var img = '';
+    layui.use(['form', 'layedit', 'laydate'], function () {
+        var form = layui.form,
+            layer = layui.layer
+            , layedit = layui.layedit
+            , laydate = layui.laydate;
+            $ = layui.$;
+
+
+
+        //监听提交
+        form.on('submit(saveBtn)', function (data) {
+            var index = layer.alert("确认修改信息吗?", {
+                title: '最终的提交信息'
+            }, function () {
+                var file;
+                file = data.field;
+                file.img = img;
+                $.ajax({
+                    type: "POST",
+                    url: "/hotel/Upload",
+                    data: JSON.stringify(data.field),
+                    dataType: "json",
+                    async: false,
+                    contentType: "application/json",
+                    success: function (data) {
+                        console.log(data)
+                        // 关闭弹出层
+                        layer.close(index);
+                    }
+                });
+                var iframeIndex = parent.layer.getFrameIndex(window.name);
+                parent.layer.close(iframeIndex);
+            });
+            return false;
+        });
+        //时间选择器
+        laydate.render({
+            elem: '#test'
+            ,type: 'datetime'
+        });
+        laydate.render({
+            elem: '#test1'
+            ,type: 'datetime'
+        });
+
+    });
+
+</script>
+</body>
+</html>

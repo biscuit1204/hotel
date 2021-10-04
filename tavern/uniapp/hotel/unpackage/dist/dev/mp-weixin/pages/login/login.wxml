@@ -1,0 +1,1 @@
+<view><view class="text">探寻<view class="_br"></view>梦想中的住所</view><view class="back"><image mode="top" src="../../static/image/back.jpg"></image></view><view data-event-opts="{{[['tap',[['login',['$event']]]]]}}" class="button" bindtap="__e">登录</view></view>

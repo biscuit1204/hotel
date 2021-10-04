@@ -1,0 +1,107 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "/common/welcome.html"
+  },
+  "logoInfo": {
+    "title": "酒店预订",
+    "image": "/layui/images/logo.png",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+      "title": "酒店管理",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "人员管理",
+          "href": "",
+          "icon": "fa fa-home",
+          "target": "_self",
+          "child": [
+            {
+              "title": "用户管理",
+              "href": "../user/table.html",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "管理员管理",
+              "href": "../admin/table.html",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "入住/退房管理",
+          "href": "",
+          "icon": "fa fa-home",
+          "target": "_self",
+          "child": [
+            {
+              "title": "入住管理",
+              "href": "../live/form-step.html",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "退房管理",
+              "href": "../out/form-step.html",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "酒店/房间管理",
+          "href": "",
+          "icon": "fa fa-home",
+          "target": "_self",
+          "child": [
+            {
+              "title": "酒店管理",
+              "href": "../hotel/table.html",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "房型管理",
+              "href": "../roomType/table.html",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "房间管理",
+              "href": "../room/table.html",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "预订管理",
+          "href": "",
+          "icon": "fa fa-home",
+          "target": "_self",
+          "child": [
+            {
+              "title": "订单管理",
+              "href": "../note/table.html",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            },
+            {
+              "title": "评价管理",
+              "href": "../estimate/table.html",
+              "icon": "fa fa-tachometer",
+              "target": "_self"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

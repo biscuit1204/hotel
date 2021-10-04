@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-modal": "/node-modules/uview-ui/components/u-modal/u-modal",
+    "u-toast": "/node-modules/uview-ui/components/u-toast/u-toast",
+    "u-empty": "/node-modules/uview-ui/components/u-empty/u-empty",
+    "u-tag": "/node-modules/uview-ui/components/u-tag/u-tag"
+  }
+}

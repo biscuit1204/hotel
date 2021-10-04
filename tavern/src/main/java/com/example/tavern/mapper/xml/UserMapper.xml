@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.tavern.mapper.UserMapper">
+    <select id="countNewUser" resultType="com.example.tavern.pojo.vo.UserVo">
+        SELECT DATE_FORMAT(create_time, "%Y-%m-%d")  X,COUNT(*) Y
+        FROM USER
+        WHERE DATE_SUB(CURDATE(), INTERVAL 7 DAY) &lt;= DATE(create_time)
+        GROUP BY DATE_FORMAT(create_time, "%Y-%m-%d");
+    </select>
+</mapper>

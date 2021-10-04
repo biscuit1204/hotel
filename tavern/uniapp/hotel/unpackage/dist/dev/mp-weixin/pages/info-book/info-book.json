@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-tag": "/node-modules/uview-ui/components/u-tag/u-tag",
+    "u-modal": "/node-modules/uview-ui/components/u-modal/u-modal",
+    "u-top-tips": "/node-modules/uview-ui/components/u-top-tips/u-top-tips"
+  }
+}

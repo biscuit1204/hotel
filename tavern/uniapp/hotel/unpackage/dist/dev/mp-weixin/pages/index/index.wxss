@@ -1,0 +1,164 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* uni.scss */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.back {
+  width: 100%;
+  height: 35vh;
+  position: fixed;
+  top: 0;
+  z-index: -1;
+}
+.back swiper {
+  width: 100%;
+  height: 100%;
+}
+.back swiper swiper-item {
+  width: 100%;
+  height: 100%;
+}
+.back swiper swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+.main {
+  position: fixed;
+  top: 28vh;
+  background-color: #ffffff;
+  width: 90%;
+  margin: 0 5%;
+  height: 40vh;
+  border-radius: 35rpx;
+  background: #ffffff;
+  box-shadow: -8px 8px 35px #d9d9d9, 8px -8px 35px #ffffff;
+}
+.main .item {
+  margin: 0 35rpx;
+  width: calc(100% - 70rpx);
+  height: 100%;
+}
+.main .item .item-text {
+  height: calc(25% - 1rpx);
+  width: 100%;
+  border-bottom: solid #f0f0f0 1rpx;
+}
+.main .item .item-text .text {
+  font-size: 32rpx;
+  width: 100%;
+  height: 100%;
+  padding-top: 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main .item .item-text .text image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.textDate {
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  vertical-align: bottom;
+}
+.week {
+  font-size: 24rpx;
+  color: #777;
+}
+.u-popupView {
+  height: 35vh;
+}
+.titleText {
+  color: #ffffff;
+  position: fixed;
+  top: 200rpx;
+  left: 5%;
+  font-size: 100rpx;
+}
+.u-popupView-main {
+  margin: 5%;
+  height: 100%;
+  width: 90%;
+}
+.price {
+  margin-bottom: 50rpx;
+}
+.price text {
+  font-size: 36rpx;
+}
+.price .inpu {
+  font-size: 32rpx;
+  margin: 20rpx 0;
+  display: flex;
+  justify-content: space-between;
+}
+.price .inpu input {
+  width: 40%;
+  border-radius: 35rpx;
+  background-color: #f0f0f0;
+  padding: 10rpx 15rpx;
+}
+.button {
+  width: 350rpx;
+  height: 100rpx;
+  background-color: #416699;
+  border-radius: 40rpx;
+  color: #fcfcfc;
+  font-size: 50rpx;
+  line-height: 100rpx;
+  text-align: center;
+}
+.button1 {
+  width: 250rpx;
+  height: 80rpx;
+  background-color: #416699;
+  border-radius: 40rpx;
+  color: #fcfcfc;
+  font-size: 36rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.item-text1 {
+  height: 25%;
+  width: 100%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.price1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text1 {
+  width: 400rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 400rpx;
+}
+

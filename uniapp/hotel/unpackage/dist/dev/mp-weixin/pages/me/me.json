@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-modal": "/node-modules/uview-ui/components/u-modal/u-modal"
+  }
+}

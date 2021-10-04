@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "navigationBarBackgroundColor": "#f0f0f0",
+  "usingComponents": {
+    "u-rate": "/node-modules/uview-ui/components/u-rate/u-rate",
+    "u-toast": "/node-modules/uview-ui/components/u-toast/u-toast"
+  }
+}
